@@ -1,0 +1,50 @@
+
+<div id="background" class="jumbotron text-center">
+  <p>Time Left:</p>
+  <h1 id="timer" class="giant_text text-center">{{tick}}</h1>
+  <div>
+    <a class="btn btn-primary vert_spacer" (click)="resetTime()">Reset Timer</a>
+  </div>
+
+  <p>Objective Settings</p>
+
+  <h5>Players:</h5>
+  <select (change)="changePlayerCount($event.target.value)" class="form-control selector_size" id="players">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option selected value="8">8</option>
+  </select>
+
+  <div class="checkbox">
+    <label><input selected type="checkbox" id="numbers" name="optradio" (click)="changeSettings('numbers')">Show Numbers</label>
+  </div>
+  <div class="checkbox">
+    <label><input selected type="checkbox" id="flashing" name="optradio" (click)="changeSettings('flashing')">Warning Flashes</label>
+  </div>
+  <div class="checkbox vert_spacer">
+    <label><input selected type="checkbox" id="sounds" name="optradio" (click)="changeSettings('sounds')">Play Sounds</label>
+  </div>
+  <h5>Number of Beeps:</h5>
+  <select (change)="changeBeepCount($event.target.value)" class="form-control selector_size vert_spacer" id="players">
+    <option value="0">Spawn Only</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option selected value="5">5</option>
+    <option value="10">10</option>
+  </select>
+
+  <!-- <br>
+  <h6><u>Potential Future Content:</u></h6>
+  <h6>- Fix sounds not playing on occasion</h6>
+  <h6>- Keybindings</h6>
+  <h6>- Pause/unpause the timer</h6>
+  <h6>- Enemy spawn timer option, settings, etc.</h6> -->
+</div>
+<h6 class="text-center ad_text vert_spacer2">DB Timer — created by <a href="https://www.reddit.com/u/Rauthospoon/">Dr. Rauthospoon</a>.</h6>

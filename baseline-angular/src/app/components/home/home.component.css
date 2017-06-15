@@ -1,0 +1,23 @@
+.spacer{
+  margin-left: 10px;
+}
+.vert_spacer_home{
+  margin-top: 100px;
+}
+.ad_text{
+  font-size: 0.8em;
+}
+
+.flashing{
+  color: rgb(255,0,154);
+}
+
+.btn-primary{
+  background: rgb(207,166,40);
+  border-color: rgb(175,142,40);
+}
+
+.btn-primary:hover{
+  background: rgb(162,127,22);
+  border-color: rgb(136,108,21);
+}

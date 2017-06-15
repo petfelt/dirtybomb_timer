@@ -1,0 +1,56 @@
+.vert_spacer{
+  margin-bottom: 50px;
+}
+.vert_spacer2{
+  margin-bottom: 25px;
+}
+.selector_size{
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  text-align: center;
+  width: 100px;
+  height: 25px;
+}
+
+.giant_text{
+  font-size: 20em;
+}
+.tiny_text{
+  font-size: 0px;
+}
+.ad_text{
+  font-size: 0.8em;
+}
+.big_space{
+  margin-top: 351px;
+}
+
+.flashing{
+  /*background-color: rgb(207,39,39);*/
+  background-color: rgb(255,0,154);
+}
+
+.normal{
+  background: rgb(48,48,48);
+}
+
+/* Bootstrap overrides */
+.btn-primary{
+  background: rgb(207,166,40);
+  border-color: rgb(175,142,40);
+}
+
+.btn-primary:hover{
+  background: rgb(162,127,22);
+  border-color: rgb(136,108,21);
+}
+
+.checkbox{
+  margin-bottom: 20px;
+}
+
+/* Standard overrides */
+p{
+  margin-bottom: 10px;
+}
