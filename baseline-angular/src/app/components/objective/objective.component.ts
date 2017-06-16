@@ -26,6 +26,8 @@ export class ObjectiveComponent implements OnInit, OnDestroy {
     if(this.sound2.canPlayType('audio/mpeg')){
       this.sound2 = new Audio('/assets/beep_spawn.mp3');
     }
+    this.sound1.volume = 0.5;
+    this.sound2.volume = 0.5;
   }
 
   ngOnInit() {
