@@ -44,7 +44,7 @@ app.use('/users', users);
 
 // Index route
 app.get('/', (req, res) => {
-  res.send('Invalid Endpoint');
+  res.send('DB Timer is updating. Please wait 10 seconds and refresh your page. \n\nIf this message still exists after several refreshes, the website might be broken. Contact the website admin at http://www.reddit.com/u/rauthospoon/ if you have issues.');
 });
 
 app.listen(port, () => {
