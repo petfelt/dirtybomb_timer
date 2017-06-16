@@ -106,6 +106,11 @@ export class ObjectiveComponent implements OnInit, OnDestroy {
     this.beepCount = sentVal;
   }
 
+  changeVolume(sentVal){
+    this.sound1.volume = sentVal;
+    this.sound2.volume = sentVal;
+  }
+
   changeSettings(sentVal){
     if(sentVal == "numbers"){
       if(document.getElementById("numbers").getAttribute("checked") == "true"){
