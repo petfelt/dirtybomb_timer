@@ -68,8 +68,9 @@ export class ObjectiveComponent implements OnInit, OnDestroy {
     }
     if(this.tick == 0 && (document.getElementById('sounds').getAttribute("checked") == "false")){
       this.sound2.play();
-      document.getElementById('background').classList.add('flashing');
-
+      if(document.getElementById('flashing').getAttribute("checked") == "false"){
+        document.getElementById('background').classList.add('flashing');
+      }
     }
   }
 
