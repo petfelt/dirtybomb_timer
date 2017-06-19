@@ -30,28 +30,12 @@
         <option value="10">10</option>
       </select>
 
+      <p>Volume at <span class="pop_text">{{myVolume}}%</span>.</p>
+      <!-- Freaking sliders + Angular 2. I'll get back to this. -->
+      <!-- <input id="vol-control" type="range" min="0" max="100" step="1" value="25"> -->
+      <h5>Change Volume:</h5>
+      <input class="selector_size form-control" type="text" id="vol-control" value="25" (change)="changeVolume($event.target.value)">
 
-  <!-- Silly old code. -->
-  <!-- <div class="radio">
-    <label><input type="radio" id="opt4" name="optradio" (click)="opt4()">No Numbers</label>
-  </div>
-  <div class="radio">
-    <label><input type="radio" id="opt6" name="optradio" (click)="opt6()">Countdown Beeps</label>
-  </div>
-  <div class="radio">
-    <label><input type="radio" id="opt2" name="optradio" (click)="opt2()">Just End Beep</label>
-  </div>
-  <div class="radio">
-    <label><input type="radio" id="opt3" name="optradio" (click)="opt3()">Mute All Sounds</label>
-  </div>
-  <div class="radio vert_spacer">
-    <label><input type="radio" id="opt5" name="optradio" (click)="opt5()">No Numbers (Muted)</label>
-  </div> -->
-  <!-- <br>
-  <h6><u>Potential Future Content:</u></h6>
-  <h6>- Fix sounds not playing on occasion</h6>
-  <h6>- Keybindings</h6>
-  <h6>- Pause/unpause the timer</h6> -->
 </div>
 <div class="col-md-12 vert_spacer2">
   <h6 class="text-center">DB Timer — created by <a href="https://www.reddit.com/u/Rauthospoon/">Dr. Rauthospoon</a>. — v 0.9.0.</h6>

@@ -15,8 +15,9 @@ export class ObjectiveComponent implements OnInit, OnDestroy {
   private tick: number = this.myTime;
   public tempNum = this.myTime - Math.floor(this.myTime);
   private subscription: Subscription;
-  private sound1 = new Audio('');
-  private sound2 = new Audio('');
+  public sound1 = new Audio('');
+  public sound2 = new Audio('');
+  public myVolume: number = 25;
   private selected;
 
   constructor() {
@@ -26,8 +27,10 @@ export class ObjectiveComponent implements OnInit, OnDestroy {
     if(this.sound2.canPlayType('audio/mpeg')){
       this.sound2 = new Audio('/assets/beep_spawn.mp3');
     }
-    this.sound1.volume = 0.5;
-    this.sound2.volume = 0.5;
+    this.sound1.volume = 0.25;
+    this.sound2.volume = 0.25;
+    this.myVolume = 25;
+
   }
 
   ngOnInit() {
@@ -107,8 +110,21 @@ export class ObjectiveComponent implements OnInit, OnDestroy {
   }
 
   changeVolume(sentVal){
-    this.sound1.volume = sentVal;
-    this.sound2.volume = sentVal;
+    sentVal = parseInt(sentVal.toString());
+    // console.log("sent: "+sentVal);
+    if(sentVal <= 100 && sentVal >= 0) {
+      this.sound1.volume = sentVal/100;
+      this.sound2.volume = sentVal/100;
+    } else if(sentVal > 100) {
+      this.sound1.volume = 1;
+      this.sound1.volume = 1;
+    } else if(sentVal < 0) {
+      this.sound1.volume = 0;
+      this.sound1.volume = 0;
+    }
+    // console.log("volume: "+this.sound1.volume);
+    this.myVolume = Math.round(this.sound1.volume*100);
+    // document.getElementById("vol-control").setAttribute("value",(this.sound1.volume*100).toString());
   }
 
   changeSettings(sentVal){

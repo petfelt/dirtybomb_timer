@@ -14,6 +14,7 @@ export class StopwatchComponent implements OnInit, OnDestroy {
   private subscription: Subscription;
   private sound1 = new Audio('');
   private sound2 = new Audio('');
+  public myVolume: number = 25;
   private selected;
 
   constructor() {
@@ -25,6 +26,7 @@ export class StopwatchComponent implements OnInit, OnDestroy {
     }
     this.sound1.volume = 0.5;
     this.sound2.volume = 0.5;
+    this.myVolume = 25;
   }
 
   ngOnInit() {
@@ -78,6 +80,21 @@ export class StopwatchComponent implements OnInit, OnDestroy {
 
   changeBeepCount(sentVal){
     this.beepCount = sentVal;
+  }
+
+  changeVolume(sentVal){
+    sentVal = parseInt(sentVal.toString());
+    if(sentVal <= 100 && sentVal >= 0) {
+      this.sound1.volume = sentVal/100;
+      this.sound2.volume = sentVal/100;
+    } else if(sentVal > 100) {
+      this.sound1.volume = 1;
+      this.sound1.volume = 1;
+    } else if(sentVal < 0) {
+      this.sound1.volume = 0;
+      this.sound1.volume = 0;
+    }
+    this.myVolume = Math.round(this.sound1.volume*100);
   }
 
   changeSettings(sentVal){

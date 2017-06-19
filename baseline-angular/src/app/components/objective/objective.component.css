@@ -22,6 +22,11 @@
 .ad_text{
   font-size: 0.8em;
 }
+.pop_text{
+  color: rgb(207,166,40);
+  font-size: 1.5em;
+  margin-left: 1px;
+}
 .big_space{
   margin-top: 351px;
 }
