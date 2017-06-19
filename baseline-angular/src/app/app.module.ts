@@ -18,8 +18,8 @@ import { AuthGuard } from './guards/auth.guard';
 
 const appRoutes: Routes = [
   {path:'', component: HomeComponent},
-  {path:'stopwatch', component: StopwatchComponent, pathMatch: 'full'},
-  {path:'objective', component: ObjectiveComponent, pathMatch: 'full'},
+  {path:'stopwatch', component: StopwatchComponent},
+  {path:'objective', component: ObjectiveComponent},
   { path: '**', redirectTo: '/', pathMatch: 'full' },
 ]
 
