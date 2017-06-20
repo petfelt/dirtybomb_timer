@@ -10,7 +10,7 @@ import 'rxjs/add/operator/first';
 })
 export class ObjectiveComponent implements OnInit, OnDestroy {
   public numPlayers = 8;
-  public myTime = 3.75*this.numPlayers;
+  public myTime = 3.5*this.numPlayers;
   public beepCount = 5;
   private tick: number = this.myTime;
   public tempNum = this.myTime - Math.floor(this.myTime);
@@ -101,7 +101,7 @@ export class ObjectiveComponent implements OnInit, OnDestroy {
 
   changePlayerCount(sentVal){
     this.numPlayers = sentVal;
-    this.myTime = 3.75*this.numPlayers;
+    this.myTime = 3.5*this.numPlayers;
     this.tempNum = this.myTime - Math.floor(this.myTime);
   }
 
