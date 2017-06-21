@@ -19,13 +19,13 @@ export class StopwatchComponent implements OnInit, OnDestroy {
 
   constructor() {
     if(this.sound1.canPlayType('audio/mpeg')){
-      this.sound1 = new Audio('/assets/beep_countdown.mp3');
+      this.sound1 = new Audio('/assets/0_countdown.mp3');
     }
     if(this.sound2.canPlayType('audio/mpeg')){
-      this.sound2 = new Audio('/assets/beep_spawn.mp3');
+      this.sound2 = new Audio('/assets/0_spawn.mp3');
     }
-    this.sound1.volume = 0.5;
-    this.sound2.volume = 0.5;
+    this.sound1.volume = 0.25;
+    this.sound2.volume = 0.25;
     this.myVolume = 25;
   }
 
@@ -97,6 +97,17 @@ export class StopwatchComponent implements OnInit, OnDestroy {
     this.myVolume = Math.round(this.sound1.volume*100);
   }
 
+  changeSound(sentVal) {
+    if(this.sound1.canPlayType('audio/mpeg')){
+      this.sound1 = new Audio('/assets/'+sentVal+'_countdown.mp3');
+    }
+    if(this.sound2.canPlayType('audio/mpeg')){
+      this.sound2 = new Audio('/assets/'+sentVal+'_spawn.mp3');
+    }
+    this.sound1.volume = (this.myVolume/100);
+    this.sound2.volume = (this.myVolume/100);
+  }
+
   changeSettings(sentVal){
     if(sentVal == "numbers"){
       if(document.getElementById("numbers").getAttribute("checked") == "true"){
@@ -126,47 +137,5 @@ export class StopwatchComponent implements OnInit, OnDestroy {
     document.getElementById("sounds").setAttribute("checked", "false");
     document.getElementById("numbers").setAttribute("checked", "false");
   }
-
-  // Silly old code.
-  // opt6(){
-  //   document.getElementById("opt6").setAttribute("checked", "true");
-  //   document.getElementById("opt2").setAttribute("checked", "false");
-  //   document.getElementById("opt3").setAttribute("checked", "false");
-  //   document.getElementById("opt4").setAttribute("checked", "false");
-  //   document.getElementById("opt5").setAttribute("checked", "false");
-  //   document.getElementById('timer').className = "giant_text";
-  // }
-  // opt2(){
-  //   document.getElementById("opt6").setAttribute("checked", "false");
-  //   document.getElementById("opt2").setAttribute("checked", "true");
-  //   document.getElementById("opt3").setAttribute("checked", "false");
-  //   document.getElementById("opt4").setAttribute("checked", "false");
-  //   document.getElementById("opt5").setAttribute("checked", "false");
-  //   document.getElementById('timer').className = "giant_text";
-  // }
-  // opt3(){
-  //   document.getElementById("opt6").setAttribute("checked", "false");
-  //   document.getElementById("opt2").setAttribute("checked", "false");
-  //   document.getElementById("opt3").setAttribute("checked", "true");
-  //   document.getElementById("opt4").setAttribute("checked", "false");
-  //   document.getElementById("opt5").setAttribute("checked", "false");
-  //   document.getElementById('timer').className = "giant_text";
-  // }
-  // opt4(){
-  //   document.getElementById("opt6").setAttribute("checked", "false");
-  //   document.getElementById("opt2").setAttribute("checked", "false");
-  //   document.getElementById("opt3").setAttribute("checked", "false");
-  //   document.getElementById("opt4").setAttribute("checked", "true");
-  //   document.getElementById("opt5").setAttribute("checked", "false");
-  //   document.getElementById('timer').className = "tiny_text big_space";
-  // }
-  // opt5(){
-  //   document.getElementById("opt6").setAttribute("checked", "false");
-  //   document.getElementById("opt2").setAttribute("checked", "false");
-  //   document.getElementById("opt3").setAttribute("checked", "false");
-  //   document.getElementById("opt4").setAttribute("checked", "false");
-  //   document.getElementById("opt5").setAttribute("checked", "true");
-  //   document.getElementById('timer').className = "tiny_text big_space";
-  // }
 
 }
