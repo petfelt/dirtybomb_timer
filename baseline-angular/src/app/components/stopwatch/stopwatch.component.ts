@@ -15,7 +15,9 @@ export class StopwatchComponent implements OnInit, OnDestroy {
   private sound1 = new Audio('');
   private sound2 = new Audio('');
   public myVolume: number = 25;
-  private selected;
+  public pauseTime: number = 0;
+  public pauseBool: boolean = false;
+  public pauseText = "Pause Timer";
 
   constructor() {
     if(this.sound1.canPlayType('audio/mpeg')){
@@ -30,6 +32,7 @@ export class StopwatchComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.tick = this.myTime+1;
     let timer = TimerObservable.create(0, 1000);
     this.subscription = timer.subscribe(t => {
       this.checkTime(t);
@@ -43,12 +46,13 @@ export class StopwatchComponent implements OnInit, OnDestroy {
 
   checkTime(t){
     // Actually changing the time.
-    if(t % (this.myTime+1) === 0){
+    if(this.tick <= 0){
       this.tick = this.myTime;
       document.getElementById('background').classList.remove('flashing');
-    } else {
+    } else{
       this.tick--;
     }
+    this.pauseTime = t % (this.tick+1);
 
 
     // Check for user selections for sounds/flashing & play sounds/flash.
@@ -70,8 +74,34 @@ export class StopwatchComponent implements OnInit, OnDestroy {
     }
   }
 
+  timeUp(){
+    this.tick++;
+  }
+
+  timeDown(){
+    this.tick--;
+  }
+
+  pausePlayTime(){
+    this.pauseText = "Play Timer!";
+    // Unsubscribe every time just in case.
+    this.subscription.unsubscribe();
+    // If time for unpause...
+    if(this.pauseBool == true){
+      // Subscribe again, but make the time start at a later time.
+      let temp = this.pauseTime;
+      let timer = TimerObservable.create(0, 1000);
+      this.subscription = timer.subscribe(t => {
+        this.checkTime(t-temp);
+      });
+      this.pauseText = "Pause Timer";
+    }
+    this.pauseBool = !this.pauseBool;
+  }
+
   resetTime() {
     this.subscription.unsubscribe();
+    this.tick = this.myTime+1;
     let timer = TimerObservable.create(0, 1000);
     this.subscription = timer.subscribe(t => {
       this.checkTime(t);

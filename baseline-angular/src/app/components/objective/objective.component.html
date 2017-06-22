@@ -7,6 +7,12 @@
 
   <p>Objective Settings</p>
 
+  <div class="vert_spacer2">
+    <a class="btn btn-primary up_down_buttons" (click)="timeDown()">-</a>
+    <a class="spacer btn btn-default" (click)="pausePlayTime()">{{pauseText}}</a>
+    <a class="spacer btn btn-primary up_down_buttons" (click)="timeUp()">+</a>
+  </div>
+
   <h5>Players:</h5>
   <select (change)="changePlayerCount($event.target.value)" class="form-control selector_size" id="players">
     <option value="1">1</option>
@@ -31,12 +37,13 @@
 
   <h5>Number of Beeps:</h5>
   <select (change)="changeBeepCount($event.target.value)" class="form-control selector_size vert_spacer" id="players">
-    <option value="0">Spawn Only</option>
-    <option value="1">1</option>
     <option value="2">2</option>
     <option value="3">3</option>
     <option value="4">4</option>
     <option selected value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
     <option value="10">10</option>
   </select>
 

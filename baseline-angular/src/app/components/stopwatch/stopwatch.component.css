@@ -4,6 +4,13 @@
 .vert_spacer2{
   margin-bottom: 25px;
 }
+.spacer{
+  margin-left: 5px;
+}
+.up_down_buttons{
+  width: 50px;
+  text-align: center;
+}
 .selector_size{
   display: block;
   margin: 0 auto;

@@ -18,7 +18,9 @@ export class ObjectiveComponent implements OnInit, OnDestroy {
   public sound1 = new Audio('');
   public sound2 = new Audio('');
   public myVolume: number = 25;
-  private selected;
+  public pauseTime: number = 0;
+  public pauseBool: boolean = false;
+  public pauseText = "Pause Timer";
 
   constructor() {
     if(this.sound1.canPlayType('audio/mpeg')){
@@ -47,7 +49,7 @@ export class ObjectiveComponent implements OnInit, OnDestroy {
 
   checkTime(t){
     // Actually changing the time.
-    if(this.tick == 0){
+    if(this.tick <= 0){
       document.getElementById('background').classList.remove('flashing');
       this.subscription.unsubscribe();
       this.tick = this.myTime;
@@ -58,6 +60,7 @@ export class ObjectiveComponent implements OnInit, OnDestroy {
     } else {
       this.tick--;
     }
+    this.pauseTime = t % (this.tick+1);
 
 
     // Check for user selections for sounds/flashing & play sounds/flash.
@@ -88,6 +91,32 @@ export class ObjectiveComponent implements OnInit, OnDestroy {
         this.checkTime(t);
       });
     }
+  }
+
+  timeUp(){
+    this.tick++;
+  }
+
+  timeDown(){
+    this.tick--;
+  }
+
+  pausePlayTime(){
+    this.pauseText = "Play Timer!";
+    // Unsubscribe every time just in case.
+    this.subscription.unsubscribe();
+    // If time for unpause...
+    if(this.pauseBool == true){
+      // Subscribe again, but make the time start at a later time.
+      let temp = this.pauseTime;
+      this.tick = Math.floor(this.tick);
+      let timer = TimerObservable.create(0, 1000);
+      this.subscription = timer.subscribe(t => {
+        this.checkTime(t-temp);
+      });
+      this.pauseText = "Pause Timer";
+    }
+    this.pauseBool = !this.pauseBool;
   }
 
   resetTime() {
@@ -168,46 +197,5 @@ export class ObjectiveComponent implements OnInit, OnDestroy {
     document.getElementById("numbers").setAttribute("checked", "false");
   }
 
-
-  // opt6(){
-  //   document.getElementById("opt6").setAttribute("checked", "true");
-  //   document.getElementById("opt2").setAttribute("checked", "false");
-  //   document.getElementById("opt3").setAttribute("checked", "false");
-  //   document.getElementById("opt4").setAttribute("checked", "false");
-  //   document.getElementById("opt5").setAttribute("checked", "false");
-  //   document.getElementById('timer').className = "giant_text";
-  // }
-  // opt2(){
-  //   document.getElementById("opt6").setAttribute("checked", "false");
-  //   document.getElementById("opt2").setAttribute("checked", "true");
-  //   document.getElementById("opt3").setAttribute("checked", "false");
-  //   document.getElementById("opt4").setAttribute("checked", "false");
-  //   document.getElementById("opt5").setAttribute("checked", "false");
-  //   document.getElementById('timer').className = "giant_text";
-  // }
-  // opt3(){
-  //   document.getElementById("opt6").setAttribute("checked", "false");
-  //   document.getElementById("opt2").setAttribute("checked", "false");
-  //   document.getElementById("opt3").setAttribute("checked", "true");
-  //   document.getElementById("opt4").setAttribute("checked", "false");
-  //   document.getElementById("opt5").setAttribute("checked", "false");
-  //   document.getElementById('timer').className = "giant_text";
-  // }
-  // opt4(){
-  //   document.getElementById("opt6").setAttribute("checked", "false");
-  //   document.getElementById("opt2").setAttribute("checked", "false");
-  //   document.getElementById("opt3").setAttribute("checked", "false");
-  //   document.getElementById("opt4").setAttribute("checked", "true");
-  //   document.getElementById("opt5").setAttribute("checked", "false");
-  //   document.getElementById('timer').className = "tiny_text big_space";
-  // }
-  // opt5(){
-  //   document.getElementById("opt6").setAttribute("checked", "false");
-  //   document.getElementById("opt2").setAttribute("checked", "false");
-  //   document.getElementById("opt3").setAttribute("checked", "false");
-  //   document.getElementById("opt4").setAttribute("checked", "false");
-  //   document.getElementById("opt5").setAttribute("checked", "true");
-  //   document.getElementById('timer').className = "tiny_text big_space";
-  // }
 
 }
