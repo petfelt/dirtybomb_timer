@@ -100,6 +100,8 @@ export class StopwatchComponent implements OnInit, OnDestroy {
   }
 
   resetTime() {
+    this.pauseText = "Pause Timer";
+    this.pauseBool = false;
     this.subscription.unsubscribe();
     this.tick = this.myTime+1;
     let timer = TimerObservable.create(0, 1000);

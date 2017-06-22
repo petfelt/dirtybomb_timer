@@ -120,6 +120,8 @@ export class ObjectiveComponent implements OnInit, OnDestroy {
   }
 
   resetTime() {
+    this.pauseText = "Pause Timer";
+    this.pauseBool = false;
     this.subscription.unsubscribe();
     this.tick = this.myTime;
     let timer2 = TimerObservable.create(0,(this.tempNum*1000));
