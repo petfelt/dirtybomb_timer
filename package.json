@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node app",
-    "heroku-postbuild": "cd ANGULAR_APP_FOLDER && npm install"
+    "heroku-postbuild": "cd baseline-angular && npm install"
   },
   "engines": {
     "node":"6.10.1",
