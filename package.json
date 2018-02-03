@@ -4,7 +4,7 @@
   "description": "DB Timer.",
   "main": "app.js",
   "scripts": {
-    "start": "baseline-angular/ng serve"
+    "start": "node app.js"
   },
   "dependencies": {
     "bcryptjs": "*",
