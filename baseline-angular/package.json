@@ -8,10 +8,14 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postinstall": "ng build --aot -prod"
   },
   "private": true,
   "dependencies": {
+    "@angular/cli": "^1.0.1",
+    "@angular/compiler-cli": "^4.0.0",
+    "typescript": "~2.2.0",
     "@angular/common": "^4.0.0",
     "@angular/compiler": "^4.0.0",
     "@angular/core": "^4.0.0",
@@ -28,7 +32,6 @@
   },
   "devDependencies": {
     "@angular/cli": "1.0.0",
-    "@angular/compiler-cli": "^4.0.0",
     "@types/jasmine": "2.5.38",
     "@types/node": "~6.0.60",
     "codelyzer": "~2.0.0",
@@ -43,6 +46,5 @@
     "protractor": "~5.1.0",
     "ts-node": "~2.0.0",
     "tslint": "~4.5.0",
-    "typescript": "~2.2.0"
   }
 }
