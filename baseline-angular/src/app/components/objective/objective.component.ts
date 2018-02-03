@@ -12,7 +12,7 @@ export class ObjectiveComponent implements OnInit, OnDestroy {
   public numPlayers = 8;
   public myTime = 3.5*this.numPlayers;
   public beepCount = 5;
-  private tick: number = this.myTime;
+  public tick: number = this.myTime;
   public tempNum = this.myTime - Math.floor(this.myTime);
   private subscription: Subscription;
   public sound1 = new Audio('');

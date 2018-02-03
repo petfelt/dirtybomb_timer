@@ -8,7 +8,7 @@ import {TimerObservable} from "rxjs/observable/TimerObservable";
   styleUrls: ['./stopwatch.component.css']
 })
 export class StopwatchComponent implements OnInit, OnDestroy {
-  private tick: number = 24;
+  public tick: number = 24;
   private myTime = 24;
   public beepCount = 5;
   private subscription: Subscription;
