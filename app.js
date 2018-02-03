@@ -8,23 +8,23 @@ const config = require('./config/database');
 
 
 // Connect to database
-// mongoose.connect(config.database);
-//
-// // Tell use we're connected
-// mongoose.connection.on('connected', () => {
-//   console.log('Connected to database '+config.database);
-// });
-//
-// // If Error
-// mongoose.connection.on('error', (err) => {
-//   console.log('Database error: '+err);
-// });
+mongoose.connect(config.database);
+
+// Tell use we're connected
+mongoose.connection.on('connected', () => {
+  console.log('Connected to database '+config.database);
+});
+
+// If Error
+mongoose.connection.on('error', (err) => {
+  console.log('Database error: '+err);
+});
 
 const app = express();
 
 const users = require('./routes/users');
 
-const port = 8000;
+const port = process.env.PORT || 8000;
 
 // Allows other domains to "ping" this one.
 app.use(cors());
@@ -38,9 +38,9 @@ app.use(bodyParser.json());
 app.use(passport.initialize());
 app.use(passport.session());
 
-// require('./config/passport')(passport);
-//
-// app.use('/users', users);
+require('./config/passport')(passport);
+
+app.use('/users', users);
 
 // Index route
 app.get('/', (req, res) => {
