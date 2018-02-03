@@ -7,6 +7,10 @@
     "start": "node app",
     "heroku-postbuild": "cd ANGULAR_APP_FOLDER && npm install"
   },
+  "engines": {
+    "node":"6.10.1",
+    "npm": "3.10.10",
+  },
   "dependencies": {
     "bcryptjs": "*",
     "body-parser": "*",
@@ -20,10 +24,6 @@
     "passport": "*",
     "passport-jwt": "*",
     "primeng": "^4.1.0-rc.2"
-  },
-  "engines": {
-    "node":"6.10.1",
-    "npm": "3.10.10",
   },
   "author": "Peter F",
   "license": "UNLICENSED"
