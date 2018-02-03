@@ -1,19 +1,13 @@
 /* Some bootstrap overrides for coloring */
-.navbar-default{
+.navbar-light{
   background: rgb(207,166,40);
+  margin-bottom: 25px;
 }
 
-.navbar-brand, .nav.navbar-nav li a {
-   color: rgb(34,34,34);
-   background: rgb(207,166,40);
+.navbar-brand, a.nav-link, .nav.navbar-nav li a {
+   color: rgb(34,34,34) !important;
  }
 
-.navbar-brand:hover, .nav.navbar-nav li a:hover {
- /*color: rgb(77,139,190);*/
- color: rgb(235,235,235);
+a.active, .navbar-brand:hover, .navbar-brand:focus, a.nav-link:hover, a.nav-link:focus {
+ color: white !important;
 }
-
-.navbar-brand:focus, .navbar-brand:active, .nav.navbar-nav li a:focus, .nav.navbar-nav li a:active {
-      color: white;
-      background: rgb(34,34,34);
- }
