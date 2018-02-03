@@ -24,7 +24,7 @@ const app = express();
 
 const users = require('./routes/users');
 
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 8080;
 
 // Allows other domains to "ping" this one.
 app.use(cors());
