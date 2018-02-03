@@ -47,6 +47,10 @@ app.get('/', (req, res) => {
   res.send('DB Timer is updating. Please wait 10 - 20 seconds and refresh your page. If this message still exists after several refreshes, the website might be broken. Contact the website admin at http://www.reddit.com/u/rauthospoon/ if you have issues.');
 });
 
+app.get('/*', (req, res, next) => {
+  res.sendFile('index.html', {root: path.join(__dirname, 'public')});
+});
+
 app.listen(port, () => {
   // console.log('Server started on port '+port);
 });
