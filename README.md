@@ -1,5 +1,6 @@
 # dirtybomb_timer
-## [Live link](https://db-timer.herokuapp.com/)
+**[Live Link](https://db-timer.herokuapp.com/)**
+
 A simple timer web app built for a video game known as Dirty Bomb. Used the MEAN stack for development.
 
 It includes a constantly rotating "respawn timer" for both gamemodes in the game.
